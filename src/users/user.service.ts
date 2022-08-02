@@ -2,16 +2,25 @@ import { InjectModel } from '@nestjs/sequelize';
 import { User } from './user.model';
 import { Injectable } from '@nestjs/common';
 import { UserDto } from './dto/user.dto';
+import { RolesService } from '../roles/roles.service';
+import { Role } from '../roles/role.model';
 
 @Injectable()
 export class UserService {
-  constructor(@InjectModel(User) private userRepository: typeof User) {}
+  constructor(
+    @InjectModel(User) private userRepository: typeof User,
+    private roleService: RolesService
+  ) {}
 
   async createUser(dto: UserDto) {
-    return await this.userRepository.create(dto);
+    const user = await this.userRepository.create(dto);
+    const role = await this.roleService.getRoleByName('USER');
+    await user.$set('roles', [role.id]);
+
+    return user;
   }
 
   async getAllUsers() {
-    return await this.userRepository.findAll();
+    return await this.userRepository.findAll({ include: Role });
   }
 }
