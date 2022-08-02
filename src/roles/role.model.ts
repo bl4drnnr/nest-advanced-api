@@ -35,7 +35,7 @@ export class Role extends Model<Role, RoleCreationAttribute> {
   value: string;
 
   @ApiProperty({
-    example: '1@qWasdf',
+    example: 'Grant user access to all services',
     description: 'User role description'
   })
   @Column({ type: DataType.STRING, allowNull: false })

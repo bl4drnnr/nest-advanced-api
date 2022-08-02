@@ -41,20 +41,6 @@ export class User extends Model<User, UserCreationAttribute> {
   @Column({ type: DataType.STRING, allowNull: false })
   password: string;
 
-  @ApiProperty({
-    example: 'true',
-    description: 'User ban status'
-  })
-  @Column({ type: DataType.BOOLEAN, defaultValue: false })
-  banned: string;
-
-  @ApiProperty({
-    example: 'Hacker',
-    description: 'User ban reason'
-  })
-  @Column({ type: DataType.STRING, allowNull: true })
-  reason: string;
-
   @BelongsToMany(() => Role, () => UserRole)
   roles: Role[];
 }
