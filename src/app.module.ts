@@ -8,6 +8,7 @@ import { Role } from './roles/role.model';
 import { UserRoleModule } from './user-roles/user-role.module';
 import { UserRole } from './user-roles/user-role.model';
 import { BannedUsersModule } from './banned-users/banned-users.module';
+import { BannedUser } from './banned-users/banned-users.model';
 
 @Module({
   imports: [
@@ -21,7 +22,7 @@ import { BannedUsersModule } from './banned-users/banned-users.module';
       username: process.env.DB_USERNAME,
       password: process.env.DB_PASSWORD,
       database: process.env.DB_DATABASE,
-      models: [User, Role, UserRole],
+      models: [User, Role, UserRole, BannedUser],
       autoLoadModels: true
     }),
     UserModule,

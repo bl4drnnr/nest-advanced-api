@@ -23,4 +23,10 @@ export class UserService {
   async getAllUsers() {
     return await this.userRepository.findAll({ include: Role });
   }
+
+  async getUserByEmail(email: string) {
+    return await this.userRepository.findOne({
+      where: { email }
+    });
+  }
 }

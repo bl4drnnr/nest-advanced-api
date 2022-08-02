@@ -9,7 +9,7 @@ import {
 import { ApiProperty } from '@nestjs/swagger';
 
 @Table
-export class BannedUsersModel extends Model<BannedUsersModel> {
+export class BannedUser extends Model<BannedUser> {
   @ApiProperty({
     example: '123e4567-e89b-12d3-a456-426614174000',
     description: 'Unique uuid of record'
@@ -18,6 +18,8 @@ export class BannedUsersModel extends Model<BannedUsersModel> {
   @Default(DataType.UUIDV4)
   @Column(DataType.UUID)
   id: string;
+
+  userId: string;
 
   @ApiProperty({
     example: 'Hacker',

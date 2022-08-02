@@ -11,8 +11,8 @@ export class RolesController {
   @ApiOperation({ summary: 'Create new role' })
   @ApiResponse({ status: 200, type: Role })
   @Post()
-  create(@Body() dto: RoleDto) {
-    return this.rolesService.createRole(dto);
+  create(@Body() roleDto: RoleDto) {
+    return this.rolesService.createRole(roleDto);
   }
 
   @ApiOperation({ summary: 'Get role by its name' })
