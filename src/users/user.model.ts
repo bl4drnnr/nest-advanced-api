@@ -20,7 +20,7 @@ interface UserCreationAttribute {
 export class User extends Model<User, UserCreationAttribute> {
   @ApiProperty({
     example: '123e4567-e89b-12d3-a456-426614174000',
-    description: 'Unique uuid of user record'
+    description: 'Unique uuid of record'
   })
   @PrimaryKey
   @Default(DataType.UUIDV4)

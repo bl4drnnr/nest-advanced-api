@@ -9,7 +9,7 @@ export class RoleDto {
 
   @ApiProperty({
     example: 'Grant user access to all services',
-    description: 'Description of the role'
+    description: 'User role description'
   })
   readonly description: string;
 }
