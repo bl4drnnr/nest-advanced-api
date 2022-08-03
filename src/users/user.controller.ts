@@ -22,7 +22,7 @@ export class UserController {
   @ApiOperation({ summary: 'Getting list of all users' })
   @ApiResponse({ status: 200, type: [User] })
   @UseGuards(JwtGuard, RoleGuard)
-  @Roles('USER')
+  @Roles('ADMIN')
   @Get()
   getAll() {
     return this.userService.getAllUsers();
