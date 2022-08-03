@@ -9,11 +9,13 @@ import { JwtModule } from '@nestjs/jwt';
   providers: [AuthService],
   imports: [
     forwardRef(() => UserModule),
-    JwtModule.register({
-      secret: process.env.JWT_KEY,
-      signOptions: {
-        expiresIn: '24h'
-      }
+    JwtModule.registerAsync({
+      useFactory: async () => ({
+        secret: process.env.JWT_KEY,
+        signOptions: {
+          expiresIn: '24h'
+        }
+      })
     })
   ],
   exports: [AuthService, JwtModule]

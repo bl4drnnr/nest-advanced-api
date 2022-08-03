@@ -23,9 +23,7 @@ export class JwtGuard implements CanActivate {
       if (bearer !== 'Bearer' || !token)
         throw new UnauthorizedException({ message: 'unauthorized' });
 
-      req.user = this.jwtService.verify(token, {
-        secret: process.env.JWT_KEY
-      });
+      req.user = this.jwtService.verify(token);
       return true;
     } catch (e) {
       throw new UnauthorizedException({ message: 'unauthorized' });
