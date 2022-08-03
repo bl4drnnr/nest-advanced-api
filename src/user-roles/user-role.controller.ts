@@ -1,4 +1,4 @@
 import { Controller } from '@nestjs/common';
 
-@Controller('user-roles')
+@Controller('user-role')
 export class UserRoleController {}

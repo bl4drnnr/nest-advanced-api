@@ -5,15 +5,15 @@ import { SequelizeModule } from '@nestjs/sequelize';
 import { User } from './user.model';
 import { Role } from '../roles/role.model';
 import { UserRole } from '../user-roles/user-role.model';
-import { RolesModule } from '../roles/roles.module';
-import { BannedUser } from '../banned-users/banned-users.model';
+import { RoleModule } from '../roles/role.module';
+import { BannedUser } from '../banned-users/banned-user.model';
 
 @Module({
   controllers: [UserController],
   providers: [UserService],
   imports: [
     SequelizeModule.forFeature([User, Role, UserRole, BannedUser]),
-    RolesModule
+    RoleModule
   ],
   exports: [UserService]
 })

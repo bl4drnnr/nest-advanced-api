@@ -3,12 +3,12 @@ import { ConfigModule } from '@nestjs/config';
 import { SequelizeModule } from '@nestjs/sequelize';
 import { UserModule } from './users/user.module';
 import { User } from './users/user.model';
-import { RolesModule } from './roles/roles.module';
+import { RoleModule } from './roles/role.module';
 import { Role } from './roles/role.model';
 import { UserRoleModule } from './user-roles/user-role.module';
 import { UserRole } from './user-roles/user-role.model';
-import { BannedUsersModule } from './banned-users/banned-users.module';
-import { BannedUser } from './banned-users/banned-users.model';
+import { BannedUserModule } from './banned-users/banned-user.module';
+import { BannedUser } from './banned-users/banned-user.model';
 
 @Module({
   imports: [
@@ -26,9 +26,9 @@ import { BannedUser } from './banned-users/banned-users.model';
       autoLoadModels: true
     }),
     UserModule,
-    RolesModule,
+    RoleModule,
     UserRoleModule,
-    BannedUsersModule
+    BannedUserModule
   ]
 })
 export class AppModule {}
