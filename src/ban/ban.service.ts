@@ -3,6 +3,7 @@ import { BanDto } from './dto/ban.dto';
 import { InjectModel } from '@nestjs/sequelize';
 import { BanUser } from './ban.model';
 import { UserService } from '../users/user.service';
+import { User } from '../users/user.model';
 
 @Injectable()
 export class BanService {
@@ -11,12 +12,16 @@ export class BanService {
     private userService: UserService
   ) {}
 
-  async createBannedUser(banDto: BanDto) {
+  async banUser(banDto: BanDto) {
     const { email, reason } = banDto;
     const user = await this.userService.getUserByEmail(email);
     return this.bannedUsersRepository.create({
       reason,
       userId: user.id
     });
+  }
+
+  async getAllBannedUsers() {
+    return this.bannedUsersRepository.findAll({ include: User });
   }
 }

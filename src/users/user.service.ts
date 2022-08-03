@@ -5,7 +5,6 @@ import { UserDto } from './dto/user.dto';
 import { RoleService } from '../roles/role.service';
 import { Role } from '../roles/role.model';
 import { AddRoleDto } from './dto/add-role.dto';
-import { BanUserDto } from './dto/ban-user.dto';
 
 @Injectable()
 export class UserService {
@@ -43,9 +42,5 @@ export class UserService {
       return addRoleDto;
     }
     throw new HttpException('no-role-or-user', HttpStatus.NOT_FOUND);
-  }
-
-  async banUser(banUserDto: BanUserDto) {
-    const user = await this.getUserByEmail(banUserDto.email);
   }
 }
