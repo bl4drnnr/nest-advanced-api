@@ -11,8 +11,8 @@ export class BanService {
     private userService: UserService
   ) {}
 
-  async createBannedUser(dto: BanDto) {
-    const { email, reason } = dto;
+  async createBannedUser(banDto: BanDto) {
+    const { email, reason } = banDto;
     const user = await this.userService.getUserByEmail(email);
     return this.bannedUsersRepository.create({
       reason,

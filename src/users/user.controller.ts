@@ -6,6 +6,8 @@ import { User } from './user.model';
 import { JwtGuard } from '../guards/jwt.guard';
 import { Roles } from '../decorators/role.decorator';
 import { RoleGuard } from '../guards/role.guard';
+import { AddRoleDto } from './dto/add-role.dto';
+import { BanUserDto } from './dto/ban-user.dto';
 
 @ApiTags('Users')
 @Controller('user')
@@ -26,5 +28,23 @@ export class UserController {
   @Get()
   getAll() {
     return this.userService.getAllUsers();
+  }
+
+  @ApiOperation({ summary: 'Distribution of roles' })
+  @ApiResponse({ status: 200 })
+  @UseGuards(JwtGuard, RoleGuard)
+  @Roles('ADMIN')
+  @Post('/role')
+  addRole(@Body() addRoleDto: AddRoleDto) {
+    return this.userService.addRole(addRoleDto);
+  }
+
+  @ApiOperation({ summary: 'Ban user' })
+  @ApiResponse({ status: 200 })
+  @UseGuards(JwtGuard, RoleGuard)
+  @Roles('ADMIN')
+  @Post('/ban')
+  banUser(@Body() banUserDto: BanUserDto) {
+    return this.userService.banUser(banUserDto);
   }
 }
