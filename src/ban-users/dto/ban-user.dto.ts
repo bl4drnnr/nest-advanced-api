@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class BannedUserDto {
+export class BanUserDto {
   @ApiProperty({
     example: 'user@mail.domain',
     description: 'User email'

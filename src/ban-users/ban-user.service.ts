@@ -1,17 +1,17 @@
 import { Injectable } from '@nestjs/common';
-import { BannedUserDto } from './dto/banned-user.dto';
+import { BanUserDto } from './dto/ban-user.dto';
 import { InjectModel } from '@nestjs/sequelize';
-import { BannedUser } from './banned-user.model';
+import { BanUser } from './ban-user.model';
 import { UserService } from '../users/user.service';
 
 @Injectable()
-export class BannedUserService {
+export class BanUserService {
   constructor(
-    @InjectModel(BannedUser) private bannedUsersRepository: typeof BannedUser,
+    @InjectModel(BanUser) private bannedUsersRepository: typeof BanUser,
     private userService: UserService
   ) {}
 
-  async createBannedUser(dto: BannedUserDto) {
+  async createBannedUser(dto: BanUserDto) {
     const { email, reason } = dto;
     const user = await this.userService.getUserByEmail(email);
     return this.bannedUsersRepository.create({

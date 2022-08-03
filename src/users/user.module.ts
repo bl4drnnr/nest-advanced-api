@@ -6,13 +6,13 @@ import { User } from './user.model';
 import { Role } from '../roles/role.model';
 import { UserRole } from '../user-roles/user-role.model';
 import { RoleModule } from '../roles/role.module';
-import { BannedUser } from '../banned-users/banned-user.model';
+import { BanUser } from '../ban-users/ban-user.model';
 
 @Module({
   controllers: [UserController],
   providers: [UserService],
   imports: [
-    SequelizeModule.forFeature([User, Role, UserRole, BannedUser]),
+    SequelizeModule.forFeature([User, Role, UserRole, BanUser]),
     RoleModule
   ],
   exports: [UserService]
