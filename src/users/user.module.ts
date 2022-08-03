@@ -6,7 +6,7 @@ import { User } from './user.model';
 import { Role } from '../roles/role.model';
 import { UserRole } from '../user-roles/user-role.model';
 import { RoleModule } from '../roles/role.module';
-import { BanUser } from '../ban-users/ban-user.model';
+import { BanUser } from '../ban/ban.model';
 
 @Module({
   controllers: [UserController],

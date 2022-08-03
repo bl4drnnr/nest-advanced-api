@@ -11,7 +11,7 @@ import {
 import { ApiProperty } from '@nestjs/swagger';
 import { Role } from '../roles/role.model';
 import { UserRole } from '../user-roles/user-role.model';
-import { BanUser } from '../ban-users/ban-user.model';
+import { BanUser } from '../ban/ban.model';
 
 interface UserCreationAttribute {
   email: string;
