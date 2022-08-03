@@ -30,7 +30,7 @@ export class UserController {
   }
 
   @ApiOperation({ summary: 'Distribution of roles' })
-  @ApiResponse({ status: 200 })
+  @ApiResponse({ status: 200, type: AddRoleDto })
   @UseGuards(JwtGuard, RoleGuard)
   @Roles('ADMIN')
   @Post('/role')

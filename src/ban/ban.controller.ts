@@ -22,7 +22,7 @@ export class BanController {
   }
 
   @ApiOperation({ summary: 'Get all banned users' })
-  @ApiResponse({ status: 200 })
+  @ApiResponse({ status: 200, type: [BanUser] })
   @UseGuards(JwtGuard, RoleGuard)
   @Roles('ADMIN')
   @Get()

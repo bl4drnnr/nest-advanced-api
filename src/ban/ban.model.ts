@@ -1,4 +1,5 @@
 import {
+  BelongsTo,
   Column,
   DataType,
   Default,
@@ -6,7 +7,7 @@ import {
   Model,
   PrimaryKey,
   Table
-} from 'sequelize-typescript';
+} from "sequelize-typescript";
 import { ApiProperty } from '@nestjs/swagger';
 import { User } from '../users/user.model';
 
@@ -33,6 +34,9 @@ export class BanUser extends Model<BanUser, BanUserAttribute> {
   @ForeignKey(() => User)
   @Column({ type: DataType.UUID })
   userId: string;
+
+  @BelongsTo(() => User)
+  user: User;
 
   @ApiProperty({
     example: 'Hacker',

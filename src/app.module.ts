@@ -5,7 +5,6 @@ import { UserModule } from './users/user.module';
 import { User } from './users/user.model';
 import { RoleModule } from './roles/role.module';
 import { Role } from './roles/role.model';
-import { UserRoleModule } from './user-roles/user-role.module';
 import { UserRole } from './user-roles/user-role.model';
 import { BanModule } from './ban/ban.module';
 import { BanUser } from './ban/ban.model';
@@ -28,7 +27,6 @@ import { AuthModule } from './auth/auth.module';
     }),
     UserModule,
     RoleModule,
-    UserRoleModule,
     BanModule,
     AuthModule
   ]
