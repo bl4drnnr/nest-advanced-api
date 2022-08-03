@@ -7,7 +7,7 @@ import {
   Model,
   PrimaryKey,
   Table
-} from "sequelize-typescript";
+} from 'sequelize-typescript';
 import { ApiProperty } from '@nestjs/swagger';
 import { User } from '../users/user.model';
 
