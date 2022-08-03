@@ -3,6 +3,7 @@ import {
   Column,
   DataType,
   Default,
+  HasOne,
   Model,
   PrimaryKey,
   Table
@@ -10,6 +11,7 @@ import {
 import { ApiProperty } from '@nestjs/swagger';
 import { Role } from '../roles/role.model';
 import { UserRole } from '../user-roles/user-role.model';
+import { BannedUser } from '../banned-users/banned-users.model';
 
 interface UserCreationAttribute {
   email: string;
@@ -43,4 +45,7 @@ export class User extends Model<User, UserCreationAttribute> {
 
   @BelongsToMany(() => Role, () => UserRole)
   roles: Role[];
+
+  @HasOne(() => BannedUser)
+  bans: BannedUser[];
 }

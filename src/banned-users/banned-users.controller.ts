@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from "@nestjs/common";
+import { Body, Controller, Post } from '@nestjs/common';
 import { BannedUsersService } from './banned-users.service';
 import { BannedUsersDto } from './dto/banned-users.dto';
 import { ApiOperation, ApiResponse } from '@nestjs/swagger';
