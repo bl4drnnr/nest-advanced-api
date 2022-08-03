@@ -1,8 +1,9 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { UserDto } from './dto/user.dto';
 import { UserService } from './user.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { User } from './user.model';
+import { JwtGuard } from '../guards/jwt.guard';
 
 @ApiTags('Users')
 @Controller('user')
@@ -18,6 +19,7 @@ export class UserController {
 
   @ApiOperation({ summary: 'Getting list of all users' })
   @ApiResponse({ status: 200, type: [User] })
+  @UseGuards(JwtGuard)
   @Get()
   getAll() {
     return this.userService.getAllUsers();
