@@ -18,7 +18,7 @@ export class UserController {
   @ApiResponse({ status: 200, type: User })
   @Post()
   create(@Body() userDto: UserDto) {
-    return this.userService.createUser(userDto);
+    return this.userService.createUser(userDto, 'ADMIN');
   }
 
   @ApiOperation({ summary: 'Getting list of all users' })
