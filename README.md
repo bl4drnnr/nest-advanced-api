@@ -6,6 +6,8 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
 </p>
 
+## Description
+
 `NEST.JS` advanced API with login, registration system, ACL and availability of banning user.
 
 This API is divided by 4 modules - `Auth`, `Ban`, `Roles`, `Users`. Auth module is used for login and registration normally, 
